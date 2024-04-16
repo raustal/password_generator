@@ -5,8 +5,8 @@ from string import ascii_letters, ascii_lowercase, ascii_uppercase, digits, punc
 def generate_password(length: int = 12) -> str:
     '''Generates a random passowrd with a minimum default length of 12 characters'''
     characters = ascii_letters + digits + punctuation
-    if length < 12:
-        raise ValueError("Password length must be at least 12 characters")
+    if not 12 <= length <= 128:
+        raise ValueError("Password length must be between 12 to 128 characters")
     try:
         list_password = list(
             "".join(
